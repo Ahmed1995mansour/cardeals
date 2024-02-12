@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 
-import './App.css';
-
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
     <>
-      <div className="bg-purple-700 text-white">
-        <p>HEllo from the home page</p>
-      </div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route />
+        </Routes>
+      </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;
