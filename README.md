@@ -1,6 +1,6 @@
 # Car Deals and Trade-In Application
 
-Live App Demo: https://cardeals.onrender.com/sign-in
+Live App Demo: https://cardeals.onrender.com
 
 ## Credentials:
 
