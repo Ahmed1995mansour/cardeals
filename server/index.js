@@ -6,8 +6,7 @@ import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
 import listingRouter from './routes/listing.route.js';
 import tradeRouter from './routes/trade.route.js';
-import path from ' path';
-
+import path from 'path';
 // use .env variables
 dotenv.config();
 
