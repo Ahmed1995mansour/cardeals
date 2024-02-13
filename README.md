@@ -6,15 +6,13 @@ Live App Demo: https://cardeals.onrender.com/sign-in
 
 ### As Admin
 
-bash
-copy code
-username:admin@cardeals.com password: admin@123
+username: admin@cardeals.com &emsp; password: admin@123
 
 ### As User
 
 bash
 copy code
-username: user@cardeals.com password: user@123
+username: user@cardeals.com &emsp; password: user@123
 
 ## Introduction
 
