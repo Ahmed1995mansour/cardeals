@@ -15,10 +15,11 @@ import {
   FaCogs,
   FaCalendarAlt,
 } from 'react-icons/fa';
+import Loading from '../components/Loading';
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 
-export default function Listing() {
+export default function Listing({ flag }) {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -28,11 +29,18 @@ export default function Listing() {
   const navigate = useNavigate();
   const { currentUser } = useSelector(state => state.user);
 
+  let url;
+  if (flag === 'listing') {
+    url = `/api/listing/get/${params.listingId}`;
+  } else {
+    url = `/api/trade/get/${params.tradeId}`;
+  }
   useEffect(() => {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`/api/listing/get/${params.listingId}`);
+
+        const res = await fetch(url);
         const data = await res.json();
         if (data.success === false) {
           setError(true);
@@ -48,11 +56,11 @@ export default function Listing() {
       }
     };
     fetchListing();
-  }, [params.listingId]);
+  }, [params.listingId || params.tradeId]);
 
   return (
     <main>
-      {loading && <p className="text-center my-7 text-2xl">Loading...</p>}
+      {loading && <Loading />}
       {error && <p className="text-center my-7 text-2xl">Something went wrong!</p>}
       {listing && !loading && !error && (
         <div>
@@ -138,7 +146,7 @@ export default function Listing() {
                 {`Millage: ${listing.millage}`}
               </li>
             </ul>
-            {currentUser && listing.userRef !== currentUser._id && (
+            {currentUser && listing.user !== currentUser._id && !currentUser.isAdmin && (
               <button
                 onClick={() => navigate(`/trade-in-application/${listing._id}`)}
                 className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3"

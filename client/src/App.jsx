@@ -10,7 +10,7 @@ import AdminRoute from './components/AdminRoute';
 import CreateListing from './pages/CreateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
-import UpdateListing from './pages/UpdateListing';
+
 import TradeInApplication from './pages/TradeInApplication';
 import Trades from './pages/Trades';
 
@@ -25,8 +25,8 @@ const App = () => {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sgin-up" element={<SignUp />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/listing/:listingId" element={<Listing />} />
-
+          <Route path="/listing/:listingId" element={<Listing flag="listing" />} />
+          <Route path="/trade/:tradeId" element={<Listing flag="trade" />} />
           <Route element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/trade-in-application/:listingId" element={<TradeInApplication />} />
@@ -34,7 +34,6 @@ const App = () => {
           </Route>
           <Route element={<AdminRoute />}>
             <Route path="/create-listing" element={<CreateListing />} />
-            <Route path="/update-listing/:listingId" element={<UpdateListing />} />
           </Route>
         </Routes>
       </BrowserRouter>

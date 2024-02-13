@@ -6,6 +6,10 @@ const tradeSchema = new mongoose.Schema(
       type: String,
       default: 'pending',
     },
+    discount: {
+      type: Number,
+      default: 0,
+    },
     name: {
       type: String,
       required: true,
@@ -51,9 +55,11 @@ const tradeSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    userRef: {
-      type: String,
+
+    user: {
+      type: Schema.Types.ObjectId,
       required: true,
+      ref: 'User',
     },
     listing: {
       type: Schema.Types.ObjectId,

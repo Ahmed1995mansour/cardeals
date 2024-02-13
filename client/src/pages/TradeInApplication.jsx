@@ -110,7 +110,7 @@ const TradeInApplication = () => {
         },
         body: JSON.stringify({
           ...formData,
-          userRef: currentUser._id,
+          user: currentUser._id,
           listing: listing._id,
         }),
       });
