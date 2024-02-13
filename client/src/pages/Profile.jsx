@@ -13,6 +13,7 @@ import {
   updateUserStart,
   updateUserSuccess,
 } from '../redux/user/userSlice';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const fileRef = useRef(null);
@@ -171,6 +172,14 @@ const Profile = () => {
         >
           {loading ? 'Loading....' : 'Update'}
         </button>
+        {currentUser.isAdmin && (
+          <Link
+            className="bg-green-700 text-white rounded-lg uppercase p-3 text-center hover:opacity-95"
+            to="/create-listing"
+          >
+            Create Listing
+          </Link>
+        )}
       </form>
       <div className="flex justify-between mt-5">
         <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">

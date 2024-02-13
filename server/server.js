@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
 import listingRouter from './routes/listing.route.js';
+import tradeRouter from './routes/trade.route.js';
 
 // use .env variables
 dotenv.config();
@@ -31,6 +32,7 @@ app.use(cookieParser());
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/listing', listingRouter);
+app.use('/api/trade', tradeRouter);
 
 // test endpoint
 app.get('/api/test', (req, res) => {
