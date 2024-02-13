@@ -10,8 +10,6 @@ username: admin@cardeals.com &emsp; password: admin@123
 
 ### As User
 
-bash
-copy code
 username: user@cardeals.com &emsp; password: user@123
 
 ## Introduction
