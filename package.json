@@ -1,11 +1,11 @@
 {
   "type": "module",
   "scripts": {
-    "server": "nodemon index.js",
-    "client": "npm run dev --prefix ../client",
+    "server": "nodemon server/index.js",
+    "client": "npm run dev --prefix client",
     "dev": "concurrently \"npm run server\" \" npm run client\"",
-    "start": "node index.js",
-    "build": "npm install && npm install --prefix ../client && npm run build --prefix ../client"
+    "start": "node server/index.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
